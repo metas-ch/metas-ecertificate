@@ -1,16 +1,16 @@
 # metas-ecertificate
-METAS eCertificate is LaTeX template for an electronic calibration certificate with embedded data files.
+[METAS](https://www.metas.ch/) eCertificate is [LaTeX](https://en.wikipedia.org/wiki/LaTeX) template for an electronic calibration certificate with embedded data files.
 
 ## Certificate without Data
 
-The following command will generate a PDF/A-2u without embedded data files:
+The following command will generate a [PDF/A-2u](https://en.wikipedia.org/wiki/PDF/A) without embedded data files:
 ````tex
 \documentclass[nodata]{ecertificate}
 ````
 
 ## Certificate with Data
 
-The following command will generate a PDF/A-3u with embedded data files:
+The following command will generate a [PDF/A-3u](https://en.wikipedia.org/wiki/PDF/A) with embedded data files:
 ````tex
 \documentclass[data]{ecertificate}
 ````
@@ -20,7 +20,7 @@ The following command embedds a data file:
 \datafile{DIRECTORY/}{FILENAME}
 ````
 
-Multiple embedded data files are allowed in a PDF/A-3u.
+Multiple embedded data files are allowed in a [PDF/A-3u](https://en.wikipedia.org/wiki/PDF/A).
     
 ## Certificate Header
 
@@ -66,6 +66,6 @@ A calibration certificate contains the following sections:
 
 ## To Do
 
-* Machine readable certificate header using XMP or PDF file properties.
+* Machine readable certificate header using [XMP](https://en.wikipedia.org/wiki/Extensible_Metadata_Platform) or PDF file properties.
 * Remove text formatting `\textbf` from `\cobject` command.
 * Remove text formatting `\textbf` and `\newline` from `\capplicant` command.
