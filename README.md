@@ -64,6 +64,41 @@ A calibration certificate contains the following sections:
 \end{document}
 ````
 
+## Certificate Metadata
+
+The [metadata](https://en.wikipedia.org/wiki/PDF#Metadata) of the generated PDF can be accessed for example from [Python](https://www.python.org/) using the [PyPDF2](https://pypi.org/project/PyPDF2/) package:
+````python
+from PyPDF2 import PdfFileReader
+pdf_reader = PdfFileReader(open("eExample.pdf", "rb"))
+pdf_info = pdf_reader.getDocumentInfo()
+````
+
+`pdf_info` contains the following values:
+
+````python
+{
+    '/Certificate_of_Calibration_No': 'XXX-01234',
+    '/Replaces_the_Certificate_No': '0',
+    '/Object': 'Beschreibung des Prüflings, eindeutige Identifikation',
+    '/Order': 'Kurze Beschreibung des Auftrags (Wenn aufgrund des Kalibriergegenstandes der Kalibrierumfang klar ist (z. B. Widerstand, Endmass), kann dieser Abschnitt ausnahmsweise weggelassen werden.)',
+    '/Applicant': 'Name und Adresse des Auftraggebers Firma, [Abteilung], Adresse PLZ Ort',
+    '/Traceability': 'The reported measurement values are traceable to national standards and thus to internationally supported realisations of the SI units.',
+    '/Date_of_Calibration': 'dd.mm.yyyy',
+    '/Marking': 'Calibration label METAS mm.yyyy',
+    '/Date_of_Certificate': '20 February 2020',
+    '/For_the_Measurements': 'First Name Last Name',
+    '/Approved_by': 'Dr First Name Last Name, Head of sector, Sector xxx',
+    '/CMC': 'True', 
+    '/Title': 'Certificate of Calibration No XXX-01234',
+    '/Creator': 'LaTeX with hyperref',
+    '/CreationDate': "D:20200221075548+01'00'", 
+    '/ModDate': "D:20200221075548+01'00'", 
+    '/Producer': 'pdfTeX', 
+    '/Trapped': '/False', 
+    '/GTS_PDFA1Version': 'PDF/A-3u:2012'
+}
+````
+
 ## To Do
 
 - [x] Machine readable certificate header using [XMP](https://en.wikipedia.org/wiki/Extensible_Metadata_Platform) or PDF file properties.
