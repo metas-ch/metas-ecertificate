@@ -64,12 +64,12 @@ A calibration certificate contains the following sections:
 \end{document}
 ````
 
-## Certificate Metadata
+## Metadata
 
 The [metadata](https://en.wikipedia.org/wiki/PDF#Metadata) of the generated PDF can be accessed for example from [Python](https://www.python.org/) using the [PyPDF2](https://pypi.org/project/PyPDF2/) package:
 ````python
 from PyPDF2 import PdfFileReader
-pdf_reader = PdfFileReader(open("eExample.pdf", "rb"))
+pdf_reader = PdfFileReader(open("eExample.pdf", "rb"), strict=False)
 pdf_info = pdf_reader.getDocumentInfo()
 ````
 
@@ -97,6 +97,21 @@ pdf_info = pdf_reader.getDocumentInfo()
     '/Trapped': '/False', 
     '/GTS_PDFA1Version': 'PDF/A-3u:2012'
 }
+````
+
+## Embedded Data Files
+
+The embedded data file of the generated PDF can be accessed as well from [Python](https://www.python.org/) using the [PyPDF2](https://pypi.org/project/PyPDF2/) package:
+````python
+from PyPDF2 import PdfFileReader
+pdf_reader = PdfFileReader(open("eExample.pdf", "rb"), strict=False)
+pdf_file_names = pdf_reader.trailer["/Root"]["/Names"]["/EmbeddedFiles"]["/Names"][0::2]
+````
+
+`pdf_file_names` will contains the following values:
+
+````python
+['01419_Att20dB(f-m)_52371_01_01.sdatb', 'data_01.txt', 'data_02.txt']
 ````
 
 ## To Do
