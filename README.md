@@ -138,6 +138,14 @@ data = pdf_data_object["/EF"]["/F"].getData()
 ````
 The value of `data` is the content `b'Test 01'` of the file `data_01.txt`.
 
+The following code computes the [MD5](https://en.wikipedia.org/wiki/MD5) checksum of the embedded data of the file `data_01.txt`:
+
+````python
+import hashlib
+hashlib.md5(data).hexdigest()
+````
+The computed MD5 checksum is `'3f4c48215fda2a033b9ddfe8d7138da2'`.
+
 ## To Do
 
 - [x] Machine readable certificate header using [XMP](https://en.wikipedia.org/wiki/Extensible_Metadata_Platform) or PDF file properties.
