@@ -101,18 +101,29 @@ pdf_info = pdf_reader.getDocumentInfo()
 
 ## Embedded Data Files
 
-The embedded data file of the generated PDF can be accessed as well from [Python](https://www.python.org/) using the [PyPDF2](https://pypi.org/project/PyPDF2/) package:
+The [embedded data files](https://en.wikipedia.org/wiki/PDF#File_attachments) of the generated PDF can be accessed as well from [Python](https://www.python.org/) using the [PyPDF2](https://pypi.org/project/PyPDF2/) package:
 ````python
 from PyPDF2 import PdfFileReader
 pdf_reader = PdfFileReader(open("eExample.pdf", "rb"), strict=False)
-pdf_file_names = pdf_reader.trailer["/Root"]["/Names"]["/EmbeddedFiles"]["/Names"][0::2]
+pdf_embedded_files = pdf_reader.trailer["/Root"]["/Names"]["/EmbeddedFiles"]["/Names"]
+pdf_file_names = pdf_embedded_files[0::2]
 ````
 
-`pdf_file_names` will contains the following values:
+`pdf_file_names` contains the following file names:
 
 ````python
 ['01419_Att20dB(f-m)_52371_01_01.sdatb', 'data_01.txt', 'data_02.txt']
 ````
+
+The following code reads the content for example of the second attached file `data_01.txt`:
+
+````python
+pdf_file_index = pdf_file_names.index('data_01.txt')
+pdf_data_index = 2*pdf_file_index + 1
+pdf_data_object = pdf_embedded_files[pdf_data_index].getObject()
+data = pdf_data_object["/EF"]["/F"].getData()
+````
+The value of `data` is the content `b'Test 01'` of the file `data_01.txt`.
 
 ## To Do
 
