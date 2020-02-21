@@ -1,5 +1,5 @@
 \NeedsTeXFormat{LaTeX2e}
-\ProvidesClass{ecertificate}[2020/02/13 V2.7 METAS eCertificate]
+\ProvidesClass{ecertificate}[2020/02/21 V2.8 METAS eCertificate]
 % Option nodata --> PDF/A-2u (PDF V1.7)
 % No problems found with Adobe Preflight
 \DeclareOption{nodata}{
@@ -71,7 +71,7 @@
         {\RequirePackage[a-3u,pdf17]{pdfx}} % Option data --> PDF/A-3u (PDF V1.7)
         {\RequirePackage[a-2u,pdf17]{pdfx}} % Option nodata --> PDF/A-2u (PDF V1.7)
 }
-% PDF/A File Properties
+% PDF/A Metadata (XMP)
 \begin{filecontents}{\jobname.xmpdata}
     \Title{Certificate of Calibration No \@cnumber}
     \Author{\@cauthor}
@@ -95,24 +95,34 @@
     linkcolor=black,
     urlcolor=blue
 }
-% PDF File Properties (when not using PDFX package)
+
+% PDF/A Metadata (Document Properties / Custom Properties)
 \AtBeginDocument{
-    \hypersetup{
-        pdftitle=Certificate of Calibration No \@cnumber,
-        pdfauthor=\@cauthor,
-        pdfinfo={
-            Certificate of Calibration No=\@cnumber,
-            Object=\@cobject,
-            Order=\@corder,
-            Applicant=\@capplicant,
-            Traceability=\@ctraceability,
-            Date of Calibration=\@cdateofcalibration,
-            Marking=Calibration label METAS \@cmarking,
-            Date of Certificate=\@cdate,
-            For the Measurements=\@cauthor,
-            Approved by={\@creviewer, \@csection},
-            %Mutual recognition=\@cmutualrecognition
-        }
+    \pdfstringdef\pdfcnumber\@cnumber
+    \pdfstringdef\pdfcoldnumber\@coldnumber
+    \pdfstringdef\pdfcobject\@cobject
+    \pdfstringdef\pdfcorder\@corder
+    \pdfstringdef\pdfcapplicant\@capplicant
+    \pdfstringdef\pdfctraceability\@ctraceability
+    \pdfstringdef\pdfcdateofcalibration\@cdateofcalibration
+    \pdfstringdef\pdfcmarking\@cmarking
+    \pdfstringdef\pdfcdate\@cdate
+    \pdfstringdef\pdfcauthor\@cauthor
+    \pdfstringdef\pdfcreviewer\@creviewer
+    \pdfstringdef\pdfcsection\@csection
+    \ifthenelse{\equal{\@ccmc}{1}}{\pdfstringdef\pdfccmc{True}}{\pdfstringdef\pdfccmc{False}}
+    \pdfinfo{/Certificate_of_Calibration_No (\pdfcnumber)
+             /Replaces_the_Certificate_No (\pdfcoldnumber)
+             /Object (\pdfcobject)
+             /Order (\pdfcorder)
+             /Applicant (\pdfcapplicant)
+             /Traceability (\pdfctraceability)
+             /Date_of_Calibration (\pdfcdateofcalibration)
+             /Marking (Calibration label METAS \pdfcmarking)
+             /Date_of_Certificate (\pdfcdate)
+             /For_the_Measurements (\pdfcauthor)
+             /Approved_by (\pdfcreviewer, \pdfcsection)
+             /CMC (\pdfccmc)
     }
 }
 \pdfsuppressptexinfo15

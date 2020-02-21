@@ -66,6 +66,6 @@ A calibration certificate contains the following sections:
 
 ## To Do
 
-* Machine readable certificate header using [XMP](https://en.wikipedia.org/wiki/Extensible_Metadata_Platform) or PDF file properties.
-* Remove text formatting `\textbf` from `\cobject` command.
-* Remove text formatting `\textbf` and `\newline` from `\capplicant` command.
+- [x] Machine readable certificate header using [XMP](https://en.wikipedia.org/wiki/Extensible_Metadata_Platform) or PDF file properties.
+- [ ] Remove text formatting `\textbf` from `\cobject` command.
+- [ ] Remove text formatting `\textbf` and `\newline` from `\capplicant` command.
