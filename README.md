@@ -168,3 +168,5 @@ The following languages are supported:
 - [ ] Remove text formatting `\textbf` from `\cobject` command.
 - [ ] Remove text formatting `\textbf` and `\newline` from `\capplicant` command.
 - [ ] Add support for more languages. Could be done with an additonal option for the language in the [eCertificate.cls](eCertificate.cls) template.
+- [ ] Add support for different types of certificates. E.g.: Certificate of Conformity, Verification Certificate, ...
+
