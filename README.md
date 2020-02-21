@@ -66,7 +66,7 @@ A calibration certificate contains the following sections:
 
 ## Example
 
-The LaTeX source of an example of an electronic certificate of calibration can be found here [eExample.tex](eExample.tex). In this example three data files are embedded with the following commands:
+The [LaTeX](https://en.wikipedia.org/wiki/LaTeX) source of an example of an electronic certificate of calibration can be found here [eExample.tex](eExample.tex). In this example three data files are embedded with the following commands:
 
 ````tex
 \datafile{data/}{data_01.txt}
@@ -112,6 +112,14 @@ pdf_info = pdf_reader.getDocumentInfo()
 }
 ````
 
+The [XMP](https://en.wikipedia.org/wiki/Extensible_Metadata_Platform) metadata of the generated PDF can be accessed with the following code:
+````python
+pdf_xmp_metadata = pdf_reader.getXmpMetadata()
+pdf_xmp_metadata.dc_title
+pdf_xmp_metadata.dc_creator
+````
+The value of `dc_title` is `{'x-default': 'Certificate of Calibration No XXX-01234'}` and the value of `dc_creator` is `['First Name Last Name']`. See as well [The XmpInformation Class](https://pythonhosted.org/PyPDF2/XmpInformation.html).
+
 ## Embedded Data Files
 
 The [embedded data files](https://en.wikipedia.org/wiki/PDF#File_attachments) of the generated PDF can be accessed as well from [Python](https://www.python.org/) using the [PyPDF2](https://pypi.org/project/PyPDF2/) package:
@@ -136,7 +144,7 @@ pdf_data_index = 2*pdf_file_index + 1
 pdf_data_object = pdf_embedded_files[pdf_data_index].getObject()
 data = pdf_data_object["/EF"]["/F"].getData()
 ````
-The value of `data` is the content `b'Test 01'` of the file `data_01.txt`.
+The value of `data` is the content `b'Test 01'` of the embedded file `data_01.txt`. The content is equal to the source file [data/data_01.txt](data/data_01.txt).
 
 The following code computes the [MD5](https://en.wikipedia.org/wiki/MD5) checksum of the embedded data of the file `data_01.txt`:
 
@@ -144,7 +152,7 @@ The following code computes the [MD5](https://en.wikipedia.org/wiki/MD5) checksu
 import hashlib
 hashlib.md5(data).hexdigest()
 ````
-The computed MD5 checksum is `'3f4c48215fda2a033b9ddfe8d7138da2'`.
+The computed [MD5](https://en.wikipedia.org/wiki/MD5) checksum is `'3f4c48215fda2a033b9ddfe8d7138da2'`.
 
 ## To Do
 
