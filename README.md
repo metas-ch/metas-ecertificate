@@ -154,8 +154,17 @@ hashlib.md5(data).hexdigest()
 ````
 The computed [MD5](https://en.wikipedia.org/wiki/MD5) checksum is `'3f4c48215fda2a033b9ddfe8d7138da2'`.
 
+## Supported Languages
+
+The following languages are supported:
+- [x] `EN` - English
+- [ ] `DE` - German
+- [ ] `FR` - French
+- [ ] `IT` - Italian
+
 ## To Do
 
 - [x] Machine readable certificate header using [XMP](https://en.wikipedia.org/wiki/Extensible_Metadata_Platform) or PDF file properties.
 - [ ] Remove text formatting `\textbf` from `\cobject` command.
 - [ ] Remove text formatting `\textbf` and `\newline` from `\capplicant` command.
+- [ ] Add support for more languages. Could be done with an additonal option for the language in the [eCertificate.cls](eCertificate.cls) template.
