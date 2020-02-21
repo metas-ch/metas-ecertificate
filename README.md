@@ -1,5 +1,5 @@
 # metas-ecertificate
-[METAS](https://www.metas.ch/) eCertificate is [LaTeX](https://en.wikipedia.org/wiki/LaTeX) template for an electronic calibration certificate with embedded data files.
+[METAS](https://www.metas.ch/) eCertificate is a [LaTeX](https://en.wikipedia.org/wiki/LaTeX) template for an electronic calibration certificate with embedded data files.
 
 ## Certificate without Data
 
@@ -44,7 +44,7 @@ Uncomment the command `\coldnumber{XXX-01233}` will add the following text to th
 
 > *Replaces the certificate no XXX-01233*
 
-The command `\ccmc{0}` will not add the CMC logo. The command `\ccmc{1}` will add the CMC logo to first page.
+The command `\ccmc{0}` will not add the [CIPM MRA logo](CIPM_MRA_C.png) and certificates statement. The command `\ccmc{1}` will add the [CIPM MRA logo](CIPM_MRA_C.png) and certificates statement to first page. See as well [Use of the CIPM MRA logo and certificates statement](https://www.bipm.org/utils/common/documents/CIPM-MRA/CIPM-MRA-D-02.pdf).
 
 ## Certificate Content
 
@@ -63,6 +63,19 @@ A calibration certificate contains the following sections:
     \uncsection
 \end{document}
 ````
+
+## Example
+
+The LaTeX source of an example of an electronic certificate of calibration can be found here [eExample.tex](eExample.tex). In this example three data files are embedded with the following commands:
+
+````tex
+\datafile{data/}{data_01.txt}
+\datafile{data/}{data_02.txt}
+\datafile{data/}{01419_Att20dB(f-m)_52371_01_01.sdatb}
+````
+
+The generated PDF with embedded data file can be found here [eExample.pdf](eExample.pdf).
+
 
 ## Metadata
 
