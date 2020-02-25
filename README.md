@@ -15,7 +15,7 @@ The following command will generate a [PDF/A-3u](https://en.wikipedia.org/wiki/P
 \documentclass[data]{ecertificate}
 ````
 
-The following command embedds a data file:
+The following command embeds a data file:
 ````tex
 \datafile{DIRECTORY/}{FILENAME}
 ````
@@ -167,6 +167,6 @@ The following languages are supported:
 - [x] Machine readable certificate header using [XMP](https://en.wikipedia.org/wiki/Extensible_Metadata_Platform) or PDF file properties.
 - [ ] Remove text formatting `\textbf` from `\cobject` command.
 - [ ] Remove text formatting `\textbf` and `\newline` from `\capplicant` command.
-- [ ] Add support for more languages. Could be done with an additonal option for the language in the [eCertificate.cls](eCertificate.cls) template.
+- [ ] Add support for more languages. Could be done with an additional option for the language in the [eCertificate.cls](eCertificate.cls) template.
 - [ ] Add support for different types of certificates. E.g.: Certificate of Conformity, Verification Certificate, ...
 
