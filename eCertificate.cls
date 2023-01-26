@@ -1,5 +1,5 @@
 \NeedsTeXFormat{LaTeX2e}
-\ProvidesClass{ecertificate}[2021/10/25 V2.9 METAS eCertificate]
+\ProvidesClass{ecertificate}[2023/01/26 V3.0 METAS eCertificate]
 % Option nodata --> PDF/A-2u (PDF V1.7)
 % No problems found with Adobe Preflight
 \DeclareOption{nodata}{
@@ -130,8 +130,7 @@
 \fancyhead[L]{}
 \fancyhead[C]{}
 \fancyhead[R]{}
-\fancyfoot[L]{\fontsize{7.5pt}{9.5pt}\selectfont{}
-This document is only valid and reviewable in its electronic form.\newline{}
+\fancyfoot[L]{\fontsize{7.5pt}{9.5pt}\selectfont{}This document is only valid and reviewable in its electronic form.\newline{}
 Please observe the information given on \uhref{https://www.metas.ch/ecert}{www.metas.ch/ecert}.
 \ifthenelse{\equal{\@clogo}{1}}{\newline{}\newline{}\textbf{METAS}\newline{}Lindenweg 50, 3003 Bern-Wabern, Switzerland, phone +41 58 387 01 11, \uhref{https://www.metas.ch}{www.metas.ch}}{}}
 \fancyfoot[C]{}
