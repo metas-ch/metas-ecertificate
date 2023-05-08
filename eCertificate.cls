@@ -1,5 +1,5 @@
 \NeedsTeXFormat{LaTeX2e}
-\ProvidesClass{ecertificate}[2023/03/22 V3.1 METAS eCertificate]
+\ProvidesClass{ecertificate}[2023/05/08 V3.2 METAS eCertificate]
 % Option nodata --> PDF/A-2u (PDF V1.7)
 % No problems found with Adobe Preflight
 \DeclareOption{nodata}{
@@ -200,7 +200,7 @@ Please observe the information given on \uhref{https://www.metas.ch/ecert}{www.m
 }
 \newcommand{\uncsection}{
 \section*{Uncertainty of Measurement}
-The reported uncertainty of measurement is stated as the combined standard uncertainty multiplied by a coverage factor \emph{k}\,=\,2. The measured value (\emph{y}) and the associated expanded uncertainty (\emph{U}) represent the interval (\emph{y}\,\textpm\,\emph{U}) which contains the value of the measured quantity with a probability of approximately 95\,\%. The uncertainty was estimated following the guidelines of the ISO (GUM:2008).\\
+The reported uncertainty of measurement is stated as the combined standard uncertainty multiplied by a coverage factor \emph{k}\,=\,2. The measured value (\emph{y}) and the associated expanded uncertainty (\emph{U}) represent the interval (\emph{y}\,\textpm\,\emph{U}) which contains the value of the measured quantity with a probability of approximately 95\,\%. The uncertainty was estimated following the guidelines of the JCGM 100:2008 (GUM).\\
 The measurement uncertainty contains contributions originating from the measurement standard, from the calibration method, from the environmental conditions and from the object being calibrated. The longterm characteristic of the object being calibrated is not included.
 }
 \endinput
