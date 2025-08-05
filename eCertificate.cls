@@ -1,5 +1,5 @@
 \NeedsTeXFormat{LaTeX2e}
-\ProvidesClass{ecertificate}[2023/05/08 V3.2 METAS eCertificate]
+\ProvidesClass{ecertificate}[2025/08/03 V3.3 METAS eCertificate]
 % Option nodata --> PDF/A-2u (PDF V1.7)
 % No problems found with Adobe Preflight
 \DeclareOption{nodata}{
@@ -31,13 +31,17 @@
 \newcommand{\creviewer}[1]{\def\@creviewer{#1}}
 \newcommand{\clogo}[1]{\def\@clogo{#1}}
 \newcommand{\ccmc}[1]{\def\@ccmc{#1}}
+\newcommand{\ciso}[1]{\def\@ciso{#1}}
+\newcommand{\cisorefmat}[1]{\def\@cisorefmat{#1}}
 \newcommand{\uhref}[2]{\href{#1}{\uline{#2}}}
 
 \def\@coldnumber{0}
 \def\@clogo{1}
 \def\@clogocont{0}
+\def\@ciso{1}
+\def\@cisorefmat{1}
 \def\@ctraceability{The reported measurement values are traceable to national standards and thus to internationally supported realisations of the SI units.}
-\def\@cmutualrecognition{This certificate is consistent with Calibration and Measurement Capabilities (CMCs) that are included in Appendix C of the Mutual Recognition Arrangement (MRA) drawn up by the International Committee for Weights and Measures. Under the MRA, all participating institutes recognize the validity of each other's calibration certificates and measurement reports for the quantities, ranges and measurement uncertainties specified in Appendix C (for details see \uhref{https://www.bipm.org}{www.bipm.org}).}
+\def\@cmutualrecognition{This certificate is consistent with Calibration and Measurement Capabilities (CMCs) that are included in Appendix C of the Mutual Recognition Arrangement (MRA) drawn up by the International Committee for Weights and Measures. Under the MRA, all participating institutes recognize the validity of each other's calibration certificates and measurement reports for the quantities, ranges and measurement uncertainties specified in Appendix C (for details see \uhref{https://www.bipm.org}{www.bipm.org}).\ifthenelse{\equal{\@ciso}{1}}{ Accordingly, METAS fulfills the requirements of ISO/IEC 17025\ifthenelse{\equal{\@cisorefmat}{1}}{ and ISO/IEC 17034}{}.}{}}
 
 \usepackage{geometry}
 \setlength{\headheight}{25mm}
